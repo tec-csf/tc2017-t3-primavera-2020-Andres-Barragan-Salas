@@ -48,20 +48,20 @@ La complejidad del algoritmo recién explicado es de **O(n)=2<sup>2</sup>**, cuy
 #### Algoritmo de strassen
 La pregunta 7 nos presenta el siguiente problema: *Si se desea implementar el algoritmo de Strassen para multiplicar dos matrices*. Para encontrar un algoritmo apto para implementar aquel de Strassen es importante primero entender el analizar el algoritmo de Strassen mismo. El algoritmo de Strassen sirve para la multiplicación de matrices cuadradas de orden *n*x*n* cuando *n* es una potencia de 2, al tener una de estas matrices, el algoritmo se encarga de dividirla en cuatro matrices de orden (*n/2*)x(*n/2*) y realizar 7 multiplicaciones a partir de las 4 submatrices (aumentando cantidad de sumas requeridas) sustituyendo las usuales 8 multiplicaciones realizadas y por tanto reduciendo la complejidad normal de *n<sup>3</sup>*. Para realizar las multiplicaciones si hace uso de las siguientes formulas tomando en cuenta dos matrices *a* y *b*:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>1</sub>=(a<sub>12</sub>-a<sub>22</sub>)(b<sub>21</sub>+b<sub>22</sub>)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>2</sub>=(a<sub>11</sub>+a<sub>22</sub>)(b<sub>11</sub>+b<sub>22</sub>)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>3</sub>=(a<sub>11</sub>-a<sub>21</sub>)(b<sub>11</sub>+b<sub>12</sub>)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>4</sub>=(a<sub>11</sub>+a<sub>12</sub>)b<sub>22</sub>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>5</sub>=a<sub>11</sub>(b<sub>12</sub>-b<sub>22</sub>)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>6</sub>=a<sub>22</sub>(b<sub>21</sub>-b<sub>11</sub>)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>7</sub>=(a<sub>21</sub>+a<sub>22</sub>)b<sub>11</sub>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>1</sub>=(a<sub>12</sub>-a<sub>22</sub>)(b<sub>21</sub>+b<sub>22</sub>)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>2</sub>=(a<sub>11</sub>+a<sub>22</sub>)(b<sub>11</sub>+b<sub>22</sub>)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>3</sub>=(a<sub>11</sub>-a<sub>21</sub>)(b<sub>11</sub>+b<sub>12</sub>)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>4</sub>=(a<sub>11</sub>+a<sub>12</sub>)b<sub>22</sub>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>5</sub>=a<sub>11</sub>(b<sub>12</sub>-b<sub>22</sub>)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>6</sub>=a<sub>22</sub>(b<sub>21</sub>-b<sub>11</sub>)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m<sub>7</sub>=(a<sub>21</sub>+a<sub>22</sub>)b<sub>11</sub>  
 
 Y a partir de los valores anteriores se realizan las siguientes sumas para agrupar en las posiciones de una matriz resultante *c*:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>11</sub>=m<sub>1</sub>+m<sub>2</sub>-m<sub>4</sub>+m<sub>6</sub>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>12</sub>=m<sub>4</sub>+m<sub>5</sub>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>21</sub>=m<sub>6</sub>+m<sub>7</sub>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>22</sub>=m<sub>2</sub>-m<sub>3</sub>+m<sub>5</sub>-m<sub>7</sub>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>11</sub>=m<sub>1</sub>+m<sub>2</sub>-m<sub>4</sub>+m<sub>6</sub>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>12</sub>=m<sub>4</sub>+m<sub>5</sub>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>21</sub>=m<sub>6</sub>+m<sub>7</sub>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c<sub>22</sub>=m<sub>2</sub>-m<sub>3</sub>+m<sub>5</sub>-m<sub>7</sub>  
 
 Todos los valores anteriormente expresados son submatrices de las matrices *A*, *B*, y *C*, y al estar reduciendo una matriz con un orden igual a una potencia de 2 en 4 submatrices eventualmente se llegará a matrices de orden *1*x*1*, en donde la operación a realizar será una simple multiplicación.
 
