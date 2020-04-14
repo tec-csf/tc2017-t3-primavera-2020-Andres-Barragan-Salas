@@ -42,7 +42,7 @@ La pregunta 4 nos presenta el siguiente problema: *Sea W un conjunto de enteros 
 
 Dentro del código con la implementación la función principal se llama “*subconjuntosAux*” y para su llamada recursiva, en cualquiera de los casos, la variable que se ve modificada es el índice *i* actual del elemento del arreglo (conjunto) que se está analizando, esta variable siempre se incrementa en uno. De esta manera, a pesar de que realmente no se está reduciendo el número de elementos en el conjunto, siempre se recorre un elemento menos en cada llamada recursiva. Por esta razón, para el análisis de la complejidad de este código se establece que en cada llamada recursiva la cantidad de elementos se reduce en uno, siendo *T(n-1)* y la condición de parada cuando *n = 0* o *T(0)* lo cual se cumple cuando *i = n* o el índice es igual al número de elementos en el arreglo y por tanto su análisis a llegado a una conclusión.  En cuanquiera de los casos, si es que el subconjunto actual representa una solución, imprimirá dicho subconjunto y dejará de recorrer las siguientes posibilidades de esa ramificación, pero el algoritmo no se detendrá ahí, si no que continuará con el resto de las posibilidades. 
 
-La complejidad del algoritmo recién explicado es de **O(n)=2<sup>2</sup>**, cuyo análisis completo esta detallado a profundidad en el archivo *TC_T3_AndresBarraganSalas* ubicado en la carpeta raíz de este repositorio.
+La complejidad del algoritmo recién explicado es de **O(n)=2<sup>n</sup>**, cuyo análisis completo esta detallado a profundidad en el archivo *TC_T3_AndresBarraganSalas* ubicado en la carpeta raíz de este repositorio.
 
 
 #### Algoritmo de strassen
