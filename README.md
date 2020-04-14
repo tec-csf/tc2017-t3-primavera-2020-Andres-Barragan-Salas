@@ -42,10 +42,11 @@ La pregunta 4 nos presenta el siguiente problema: *Sea W un conjunto de enteros 
 
 Dentro del código con la implementación la función principal se llama “*subconjuntosAux*” y para su llamada recursiva, en cualquiera de los casos, la variable que se ve modificada es el índice *i* actual del elemento del arreglo (conjunto) que se está analizando, esta variable siempre se incrementa en uno. De esta manera, a pesar de que realmente no se está reduciendo el número de elementos en el conjunto, siempre se recorre un elemento menos en cada llamada recursiva. Por esta razón, para el análisis de la complejidad de este código se establece que en cada llamada recursiva la cantidad de elementos se reduce en uno, siendo *T(n-1)* y la condición de parada cuando n = 0 o T(0) lo cual se cumple cuando *i = n* o el índice es igual al número de elementos en el arreglo y por tanto su análisis a llegado a una conclusión.  En cuanquiera de los casos, si es que el subconjunto actual representa una solución, imprimirá dicho subconjunto y dejará de recorrer las siguientes posibilidades de esa ramificación, pero el algoritmo no se detendrá ahí, si no que continuará con el resto de las posibilidades. 
 
-La complejidad del algoritmo recién explicado es de **$O(n)=2^{2}$**, cuyo análisis completo esta detallado a profundidad en el archivo *TC_T3_AndresBarraganSalas* ubicado en la carpeta raíz de este repositorio.
+La complejidad del algoritmo recién explicado es de **O(n)=2<sup>2</sup>$**, cuyo análisis completo esta detallado a profundidad en el archivo *TC_T3_AndresBarraganSalas* ubicado en la carpeta raíz de este repositorio.
+
 
 #### Algoritmo de strassen
-La pregunta 7 nos presenta el siguiente problema: *Si se desea implementar el algoritmo de Strassen para multiplicar dos matrices*. Para encontrar un algoritmo apto para implementar aquel de Strassen es importante primero entender el analizar el algoritmo de Strassen mismo. El algoritmo de Strassen sirve para la multiplicación de matrices cuadradas de orden *n*x*n* cuando *n* es una potencia de 2, al tener una de estas matrices, el algoritmo se encarga de dividirla en cuatro matrices de orden (*n/2*)x(*n/2*) y realizar 7 multiplicaciones a partir de las 4 submatrices (aumentando cantidad de sumas requeridas) sustituyendo las usuales 8 multiplicaciones realizadas y por tanto reduciendo la complejidad normal de *n^3^*. Para realizar las multiplicaciones si hace uso de las siguientes formulas tomando en cuenta dos matrices *a* y *b*:
+La pregunta 7 nos presenta el siguiente problema: *Si se desea implementar el algoritmo de Strassen para multiplicar dos matrices*. Para encontrar un algoritmo apto para implementar aquel de Strassen es importante primero entender el analizar el algoritmo de Strassen mismo. El algoritmo de Strassen sirve para la multiplicación de matrices cuadradas de orden *n*x*n* cuando *n* es una potencia de 2, al tener una de estas matrices, el algoritmo se encarga de dividirla en cuatro matrices de orden (*n/2*)x(*n/2*) y realizar 7 multiplicaciones a partir de las 4 submatrices (aumentando cantidad de sumas requeridas) sustituyendo las usuales 8 multiplicaciones realizadas y por tanto reduciendo la complejidad normal de *n<sup>3</sup>*. Para realizar las multiplicaciones si hace uso de las siguientes formulas tomando en cuenta dos matrices *a* y *b*:
 
     $m_{1}=(a_{12}-a_{22})(b_{21}+b_{22})$
     $m_{2}=(a_{11}+a_{22})(b_{11}+b_{22})$
@@ -101,5 +102,7 @@ Y para ver el funcionamiento del **algoritmo de Strassen** se correrían los sig
 ## 3. Referencias
 
 \[1\] Guerequeta, R., Vallecido, A. (1998) “Técnicas de Diseño de Algoritmos” \[PDF\] Servicio de Publicaciones de la Universidad de Malaga. Obtenido de: http://www.lcc.uma.es/~av/Libro/
+
 \[2\] Cubells, V. (2020). “Complejidad y Notación Asintótica” \[Power Point\] (Presentación de Clase).
+
 \[3\] Cubells, V. (2020). “Análisis de Algoritmos Recursivos” \[Power Point\] (Presentación de Clase).
