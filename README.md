@@ -48,20 +48,20 @@ La complejidad del algoritmo recién explicado es de **O(n)=2<sup>2</sup>**, cuy
 #### Algoritmo de strassen
 La pregunta 7 nos presenta el siguiente problema: *Si se desea implementar el algoritmo de Strassen para multiplicar dos matrices*. Para encontrar un algoritmo apto para implementar aquel de Strassen es importante primero entender el analizar el algoritmo de Strassen mismo. El algoritmo de Strassen sirve para la multiplicación de matrices cuadradas de orden *n*x*n* cuando *n* es una potencia de 2, al tener una de estas matrices, el algoritmo se encarga de dividirla en cuatro matrices de orden (*n/2*)x(*n/2*) y realizar 7 multiplicaciones a partir de las 4 submatrices (aumentando cantidad de sumas requeridas) sustituyendo las usuales 8 multiplicaciones realizadas y por tanto reduciendo la complejidad normal de *n<sup>3</sup>*. Para realizar las multiplicaciones si hace uso de las siguientes formulas tomando en cuenta dos matrices *a* y *b*:
 
-    m<sub>1</sub>=(a_<sub>12</sub>-a_<sub>22</sub>)(b_<sub>21</sub>+b_<sub>22</sub>)
-    $m_{2}=(a_{11}+a_{22})(b_{11}+b_{22})$
-    $m_{3}=(a_{11}-a_{21})(b_{11}+b_{12})$
-    $m_{4}=(a_{11}+a_{12})b_{22}$
-    $m_{5}=a_{11}(b_{12}-b_{22})$
-    $m_{6}=a_{22}(b_{21}-b_{11})$
-    $m_{7}=(a_{21}+a_{22})b_{11}$
+m<sub>1</sub>=(a_<sub>12</sub>-a_<sub>22</sub>)(b_<sub>21</sub>+b_<sub>22</sub>)
+m_<sub>2</sub>=(a_<sub>11</sub>+a_<sub>22</sub>)(b_<sub>11</sub>+b_<sub>22</sub>)
+m_<sub>3</sub>=(a_<sub>11</sub>-a_<sub>21</sub>)(b_<sub>11</sub>+b_<sub>12</sub>)
+m_<sub>4</sub>=(a_<sub>11</sub>+a_<sub>12</sub>)b_<sub>22</sub>
+m_<sub>5</sub>=a_<sub>11</sub>(b_<sub>12</sub>-b_<sub>22</sub>)
+m_<sub>6</sub>=a_<sub>22</sub>(b_<sub>21</sub>-b_<sub>11</sub>)
+m_<sub>7</sub>=(a_<sub>21</sub>+a_<sub>22</sub>)b_<sub>11</sub>
 
 Y a partir de los valores anteriores se realizan las siguientes sumas para agrupar en las posiciones de una matriz resultante *c*:
 
-    $c_{11}=m_{1}+m_{2}-m_{4}+m_{6}$
-	$c_{12}=m_{4}+m_{5}$
-	$c_{21}=m_{6}+m_{7}$
-	$c_{22}=m_{2}-m_{3}+m_{5}-m_{7}$
+c_<sub>11</sub>=m_<sub>1</sub>+m_<sub>2</sub>-m_<sub>4</sub>+m_<sub>6</sub>
+c_<sub>12</sub>=m_<sub>4</sub>+m_<sub>5</sub>
+c_<sub>21</sub>=m_<sub>6</sub>+m_<sub>7</sub>
+c_<sub>22</sub>=m_<sub>2</sub>-m_<sub>3</sub>+m_<sub>5</sub>-m_<sub>7</sub>
 
 Todos los valores anteriormente expresados son submatrices de las matrices *A*, *B*, y *C*, y al estar reduciendo una matriz con un orden igual a una potencia de 2 en 4 submatrices eventualmente se llegará a matrices de orden *1*x*1*, en donde la operación a realizar será una simple multiplicación.
 
@@ -69,7 +69,7 @@ Al entender el funcionamiento del algoritmo de Strassen y saber que el problema 
 
 Dentro del código con la implementación la función principal se llama “*strassen*” y para su llamada recursiva las variables que se modifican son las posiciones dentro las matrices para un análisis individual de sus secciones (en las posiciones *0*, *N/2* y *N*) utilizando las propiedades de apuntadores para cambiar el índice inicial de *i* y un número entero para modificar aquel de *j*. De esta manera, se reduce cada vez el orden de las matrices de *N*x*N* a (*N/2*)x(*N/2*) y eventualmente esta reducción nos llevará al caso base donde *N = 1*, y siendo esta una matriz de 1 elemento. Entonces, la operación efectuada será una simple multiplicación y a partir de ella los resultados obtenidos serán combinados en cada paso de las llamadas recursivas hasta regresar a las matrices originales. Existen secciones del código para  la declaración de matrices cuadradas como apuntadores a apuntadores que son necesarias para que la función pueda  recibir matrices de cualquier orden dado, a pesar de que estas lineas de código utilizan varias operaciones elementales, pero por el momento no se he podido encontrar una mejor manera de declarar dichas variables. De igual manera este tipo de declaración debe de ser utilizado en el main para poder mandar matrices de tipo *int\*\**.  
 
-La complejidad del algoritmo recién explicado es de **$O(n)=n^{2.807}$**, cuyo análisis completo esta detallado a profundidad en el archivo *TC_T3_AndresBarraganSalas* ubicado en la carpeta raíz de este repositorio.
+La complejidad del algoritmo recién explicado es de **O(n)=n<sup>2.807</sup>**, cuyo análisis completo esta detallado a profundidad en el archivo *TC_T3_AndresBarraganSalas* ubicado en la carpeta raíz de este repositorio.
 
 ### 2.1 Pasos a seguir para utilizar la aplicación
 Lo primero que se debe realizar para utilizar las clases implementadas es clonar el repositorio de GitHub, para realizar dicha acción, el usuario se deberá colocar en el directorio donde desea almacenar el repositorio y ahí deberá llamar el siguiente comando:
